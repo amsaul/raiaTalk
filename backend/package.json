@@ -1,0 +1,18 @@
+{
+  "name": "raiatalk",
+  "version": "1.0.0",
+  "description": "A platform for Kenyan people to express their Ideas",
+  "main": "login.html",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/amsaul"
+  },
+  "keywords": [
+    "kenya-government"
+  ],
+  "author": "amsaul",
+  "license": "MIT"
+}
