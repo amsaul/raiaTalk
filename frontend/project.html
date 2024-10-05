@@ -1,0 +1,18 @@
+<h2>Project Title</h2>
+<p>Project description...</p>
+
+<button onclick="vote(1)">Upvote</button>
+<button onclick="vote(-1)">Downvote</button>
+
+<script>
+async function vote(value) {
+    const projectId = 1; // Replace with actual project ID
+    const response = await fetch('/vote', {
+        method: 'POST',
+        headers: { 'Authorization': 'Bearer token' }, // Replace with actual token
+        body: JSON.stringify({ project_id: projectId, vote_value: value })
+    });
+    const result = await response.json();
+    alert(result.message);
+}
+</script>

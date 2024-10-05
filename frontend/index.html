@@ -1,0 +1,20 @@
+<select id="countyDropdown" onchange="getCountyProjects()">
+    <option value="1">Nairobi</option>
+    <option value="2">Mombasa</option>
+    <!-- more counties -->
+</select>
+
+<div id="projectsContainer"></div>
+
+<script>
+async function getCountyProjects() {
+    const countyId = document.getElementById('countyDropdown').value;
+    const response = await fetch(`/projects/${countyId}`);
+    const projects = await response.json();
+    document.getElementById('projectsContainer').innerHTML = projects.map(project => `
+        <h3>${project.title}</h3>
+        <p>${project.description}</p>
+        <p>Status: ${project.status}</p>
+    `).join('');
+}
+</script>

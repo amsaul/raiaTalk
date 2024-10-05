@@ -1,0 +1,23 @@
+<h2>Admin Dashboard</h2>
+
+<canvas id="myChart"></canvas>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+async function loadChart() {
+    const response = await fetch('/admin/projects-stats');
+    const stats = await response.json();
+
+    new Chart(document.getElementById('myChart'), {
+        type: 'bar',
+        data: {
+            labels: stats.map(stat => stat.project_name),
+            datasets: [{
+                label: 'Votes',
+                data: stats.map(stat => stat.votes)
+            }]
+        }
+    });
+}
+loadChart();
+</script>
